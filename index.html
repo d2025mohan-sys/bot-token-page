@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="icon" href="https://i.ibb.co/yN89M9v/icons8-telegram-48.png">
+  <title>Telegram Bot Token</title>
+
+  <style>
+    body {
+      background-color: #faffff;
+    }
+    #copyButton, .openButton {
+      margin-top: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    #linkContainer {
+      text-align: center;
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+  // Read query params
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get("token");
+  const botUsername = urlParams.get("botUsername");
+
+  const app = document.getElementById("app");
+
+  if (token && botUsername) {
+    app.innerHTML = `
+      <center>
+        <b><p style="font-weight:bold;font-size:18px;">GET TELEGRAM BOT TOKEN ✅</p></b>
+        <p>Congratulations Now You Can Get Telegram Bot Token 🎉</p>
+        <img style="height:150px; width:336px;" src="https://i.ibb.co/N9ZNpC7/clickbelow.gif">
+        <br><br>
+        <a href="https://t.me/${botUsername}?start=${token}" target="_blank" class="openButton">Start Bot</a>
+        <br><br>
+        <p><b>ANDROID USERS -</b> Just Click On Above Link & Get Bot Token.</p>
+        <p><b>IPHONE & PC USERS (if above link not works) -</b> Copy below token & Send it to Telegram Bot 
+          <a href="https://t.me/${botUsername}" target="_blank">@${botUsername}</a>. See below screenshot 👇</p>
+        <textarea readonly cols="40" rows="3">/start ${token}</textarea><br>
+        <button id="copyButton">Copy Token</button><br>
+        <img style="width:336px;" src="https://i.ibb.co/3sQJGFk/howto.jpg">
+      </center>
+    `;
+
+    // Copy button handler
+    document.addEventListener("click", (e) => {
+      if (e.target.id === "copyButton") {
+        navigator.clipboard.writeText(`/start ${token}`).then(() => {
+          alert("Token copied to clipboard!");
+        });
+      }
+    });
+
+  } else {
+    // 404 Not Found
+    app.innerHTML = `
+      <div class="container text-center">
+        <h2>404 Not Found</h2>
+        <p class="error"><strong>Error:</strong> The requested address <strong>'${window.location.pathname}${window.location.search}'</strong> was not found on this server.</p>
+      </div>
+    `;
+  }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<noscript>
+  <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f1724;padding:20px;box-sizing:border-box;">
+    <div style="max-width:600px;width:100%;background:#111827;border-radius:14px;padding:24px;color:#e6eef8;box-shadow:0 8px 30px rgba(0,0,0,0.6);text-align:center;">
+
+      <!-- Icon -->
+      <div style="margin-bottom:16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             style="width:64px;height:64px;color:#7c5cff;margin:auto;display:block;">
+          <rect x="1.5" y="1.5" width="21" height="21" rx="4" 
+                style="fill:white;opacity:0.06"></rect>
+          <path d="M7 8.5h10M7 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M4 19.5l16-15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.2"/>
+        </svg>
+      </div>
+
+      <!-- Heading -->
+      <h1 style="margin:0 0 8px;font-size:22px;letter-spacing:-0.2px;">JavaScript is disabled</h1>
+      <p style="margin:0;color:#98a0b3;font-size:15px;line-height:1.5;">
+        This site requires JavaScript to function properly. Please enable it in your browser settings.
+      </p>
+
+    </div>
+  </div>
+</noscript>
+</body>
+</html>
